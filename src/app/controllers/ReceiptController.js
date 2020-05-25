@@ -3,6 +3,7 @@ const {
   getReceipt,
   removeReceipt,
   listReceipts,
+  getReceiptsReport,
 } = require('../use-cases/receipts');
 
 class ReceiptController {
@@ -67,76 +68,23 @@ class ReceiptController {
     }
   }
 
-  // async getReceiptsDailyReport(req, res) {
-  //   const { date, dailySum = false } = req.query;
+  async getReceiptsDailyReport(req, res) {
+    const { date, dailySum = false } = req.query;
 
-  //   const daily_sum = dailySum ? dailySum.toLowerCase() === 'true' : false;
-  //   console.log(typeof daily_sum);
+    try {
+      const report = await getReceiptsReport({
+        date,
+        dailySum,
+        user_id: req.userId,
+      });
 
-  //   if (daily_sum) {
-  //     if (typeof date !== 'undefined') {
-  //       const dailySumTotal = await Receipt.sum('value', {
-  //         where: { user_id: req.userId, date },
-  //       });
-
-  //       const receiptsList = await Receipt.findAll({
-  //         where: {
-  //           date,
-  //           user_id: req.userId,
-  //         },
-  //       });
-
-  //       return res.status(200).json({
-  //         saldoTotal: dailySumTotal,
-  //         receiptsList,
-  //       });
-  //     }
-
-  //     const dailySumTotal = await Receipt.sum('value', {
-  //       where: { user_id: req.userId, date: new Date() },
-  //     });
-
-  //     const receiptsList = await Receipt.findAll({
-  //       where: {
-  //         user_id: req.userId,
-  //       },
-  //     });
-
-  //     return res.status(200).json({
-  //       saldoTotal: dailySumTotal,
-  //       receiptsList,
-  //     });
-  //   }
-
-  //   const allReceiptsSum = await Receipt.sum('value', {
-  //     where: { user_id: req.userId },
-  //   });
-
-  //   if (typeof date !== 'undefined') {
-  //     const receiptsList = await Receipt.findAll({
-  //       where: {
-  //         date,
-  //         user_id: req.userId,
-  //       },
-  //     });
-
-  //     return res.status(200).json({
-  //       saldoTotal: allReceiptsSum,
-  //       receiptsList,
-  //     });
-  //   }
-
-  //   const receiptsList = await Receipt.findAll({
-  //     where: {
-  //       user_id: req.userId,
-  //     },
-  //   });
-
-  //   return res.status(200).json({
-  //     saldoTotal: allReceiptsSum,
-  //     receiptsList,
-  //   });
-  // }
+      return res.status(200).json(report);
+    } catch (error) {
+      return res
+        .status(400)
+        .json({ error: "Receipts' report could not be generated." });
+    }
+  }
 }
 
 module.exports = new ReceiptController();

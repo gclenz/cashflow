@@ -73,10 +73,78 @@ module.exports = function makeReceiptDb(makeDb) {
     });
     return result;
   }
+  async function summary({ date = undefined, dailySum = false, user_id }) {
+    const daily_sum = dailySum ? dailySum.toLowerCase() === 'true' : false;
+
+    if (daily_sum) {
+      if (typeof date !== 'undefined') {
+        const dailySumTotal = await makeDb.sum('value', {
+          where: { user_id, date },
+        });
+
+        const receiptsList = await makeDb.findAll({
+          where: {
+            date,
+            user_id,
+          },
+        });
+
+        return {
+          saldoTotal: dailySumTotal,
+          receiptsList,
+        };
+      }
+
+      const dailySumTotal = await makeDb.sum('value', {
+        where: { user_id, date: new Date() },
+      });
+
+      const receiptsList = await makeDb.findAll({
+        where: {
+          user_id,
+        },
+      });
+
+      return {
+        saldoTotal: dailySumTotal,
+        receiptsList,
+      };
+    }
+
+    const allReceiptsSum = await makeDb.sum('value', {
+      where: { user_id },
+    });
+
+    if (typeof date !== 'undefined') {
+      const receiptsList = await makeDb.findAll({
+        where: {
+          date,
+          user_id,
+        },
+      });
+
+      return {
+        saldoTotal: allReceiptsSum,
+        receiptsList,
+      };
+    }
+
+    const receiptsList = await makeDb.findAll({
+      where: {
+        user_id,
+      },
+    });
+
+    return {
+      saldoTotal: allReceiptsSum,
+      receiptsList,
+    };
+  }
   return Object.freeze({
     findOne,
     findAll,
     insert,
     remove,
+    summary,
   });
 };

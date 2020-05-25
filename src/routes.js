@@ -23,6 +23,6 @@ routes.get('/receipts', ReceiptController.listReceipts);
 routes.get('/receipts/:id', ReceiptController.getReceipt);
 routes.post('/receipts', ReceiptController.createReceipt);
 routes.delete('/receipts/:id', ReceiptController.deleteReceipt);
-// routes.get('/summary', ReceiptController.getReceiptsDailyReport);
+routes.get('/report', ReceiptController.getReceiptsDailyReport);
 
 module.exports = routes;
