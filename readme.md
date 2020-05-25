@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Cashflow" src="https://ibb.co/F06nYjJ" style="max-width: 100%; height: 200px;" />
+    <img alt="Cashflow" src="https://i.ibb.co/pR2nK9Z/cover.png" style="max-width: 100%; height: 200px;" />
     <br>
     Cashflow
 </h1>
@@ -30,7 +30,7 @@
 
 <p align="center">
   <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#information_source-how-to-use">How To Use</a>
 </p>
 
 ## :rocket: Technologies
@@ -40,12 +40,12 @@ This project is currently being developed with the following technologies:
 - [NodeJS](https://nodejs.org)
 - [Express](https://expressjs.com/)
 - [Sequelize](https://sequelize.org/)
-- [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
+- [VS Code](https://code.visualstudio.com/)
 - And another couple of packages....
 
 ## :information_source: How To Use
 
-To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v12.16.2][nodejs] or higher + [Yarn v1.22.4][yarn] or higher installed on your computer.
+To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v12.16.2](https://nodejs.org) or higher + [Yarn v1.22.4](https://yarnpkg.com/) or higher installed on your computer.
 You'll also need to setup and run a Postgres database and insert the access informations into a .env file, based on a .env.example file that is provided in the repository root.
 From your command line:
 
@@ -63,14 +63,8 @@ $ yarn install
 $ yarn migrate
 
 # Run the backend server
-$ yarn dev
+$ yarn dev:server
 
 ---
 
 Made with ♥ by Gabriel Lenz :wave: [Get in touch!](https://www.linkedin.com/in/gabriellenz/)
-
-[nodejs]: https://nodejs.org/
-[yarn]: https://yarnpkg.com/
-[vc]: https://code.visualstudio.com/
-[vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
-[vceslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
