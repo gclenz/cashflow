@@ -7,8 +7,7 @@ class CategoryController {
 
       return res.status(201).json(category);
     } catch (error) {
-      console.log(error);
-      return res.status(400).json({ error: 'Category creation failed.' });
+      return res.status(400).json({ error: 'Failed to create category.' });
     }
   }
 
@@ -22,7 +21,6 @@ class CategoryController {
         .status(200)
         .json({ message: 'Category successfully deleted.' });
     } catch (error) {
-      console.log(error);
       return res.status(400).json({ error: 'Failed to delete category.' });
     }
   }

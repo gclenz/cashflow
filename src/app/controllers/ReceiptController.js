@@ -17,8 +17,7 @@ class ReceiptController {
 
       return res.status(200).json(receipt);
     } catch (error) {
-      console.log(error);
-      return res.status(404).json({ error });
+      return res.status(404).json({ error: 'Failed to get receipt.' });
     }
   }
 
@@ -34,8 +33,7 @@ class ReceiptController {
 
       return res.status(200).json(receipts);
     } catch (error) {
-      console.log(error);
-      return res.status(400).json({ error });
+      return res.status(400).json({ error: 'Failed to get receipts.' });
     }
   }
 
@@ -48,8 +46,7 @@ class ReceiptController {
 
       return res.status(201).json(receipt);
     } catch (error) {
-      console.log(error);
-      return res.status(400).json({ error });
+      return res.status(400).json({ error: 'Failed to create receipt.' });
     }
   }
 

@@ -10,8 +10,7 @@ class UserController {
         email,
       });
     } catch (error) {
-      console.log(error);
-      return res.status(400).json({ error });
+      return res.status(400).json({ error: 'Failed to create user.' });
     }
   }
 
@@ -21,8 +20,7 @@ class UserController {
 
       return res.status(200).json({ message: 'User successfully deleted.' });
     } catch (error) {
-      console.log(error);
-      return res.status(400).json({ error });
+      return res.status(400).json({ error: 'Failed to delete user.' });
     }
   }
 }
