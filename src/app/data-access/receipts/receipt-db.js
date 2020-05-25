@@ -5,7 +5,11 @@ module.exports = function makeReceiptDb(makeDb) {
     });
     return result;
   }
-  async function findAll({ user_id, category_id, date }) {
+  async function findAll({
+    user_id,
+    category_id = undefined,
+    date = undefined,
+  }) {
     if (typeof category_id !== 'undefined') {
       const receipts = await makeDb.findAll({
         where: {

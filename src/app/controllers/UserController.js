@@ -10,16 +10,18 @@ class UserController {
         email,
       });
     } catch (error) {
+      console.log(error);
       return res.status(400).json({ error });
     }
   }
 
   async deleteUser(req, res) {
     try {
-      await removeUser(req.userId);
+      await removeUser({ id: req.userId });
 
       return res.status(200).json({ message: 'User successfully deleted.' });
     } catch (error) {
+      console.log(error);
       return res.status(400).json({ error });
     }
   }

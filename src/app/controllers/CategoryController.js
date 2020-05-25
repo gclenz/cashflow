@@ -18,7 +18,7 @@ class CategoryController {
     const { id } = req.params;
 
     try {
-      await removeCategory(id);
+      await removeCategory({ id });
 
       return res
         .status(200)

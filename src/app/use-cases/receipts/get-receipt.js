@@ -1,7 +1,6 @@
-module.exports = function makeGetReceipt({ receiptsDb }) {
-  return async function getReceipt({ receiptInfo } = {}) {
-    console.log(receiptInfo);
-    const receipt = await receiptsDb.findOne(receiptInfo);
+module.exports = function makeGetReceipt({ receiptDb }) {
+  return async function getReceipt({ ...receiptInfo }) {
+    const receipt = await receiptDb.findOne(receiptInfo);
     return receipt;
   };
 };

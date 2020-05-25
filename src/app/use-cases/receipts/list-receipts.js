@@ -1,7 +1,6 @@
-module.exports = function makeListReceipts(receiptsDb) {
-  return async function listReceipts({ receiptInfo } = {}) {
-    console.log(receiptsDb);
-    const receipts = await receiptsDb.findAll(receiptInfo);
+module.exports = function makeListReceipts({ receiptDb }) {
+  return async function listReceipts({ ...receiptInfo }) {
+    const receipts = await receiptDb.findAll(receiptInfo);
     return receipts;
   };
 };
