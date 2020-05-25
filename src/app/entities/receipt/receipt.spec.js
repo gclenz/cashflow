@@ -44,4 +44,16 @@ describe('receipt', () => {
     const noId = makeFakeReceipt({ description: null });
     expect(() => makeReceipt(noId)).not.toThrow();
   });
+  it('should fail if type is in and value is negative', () => {
+    const noId = makeFakeReceipt({ value: -123 });
+    expect(() => makeReceipt(noId)).toThrow(
+      'An in receipt must have a positive value and an out receipt must have a negative value.'
+    );
+  });
+  it('should fail if type is out and value is positive', () => {
+    const noId = makeFakeReceipt({ type: 'out' });
+    expect(() => makeReceipt(noId)).toThrow(
+      'An in receipt must have a positive value and an out receipt must have a negative value.'
+    );
+  });
 });
