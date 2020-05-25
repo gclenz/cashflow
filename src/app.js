@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const DDoS = require('ddos');
+const compression = require('compression');
 const routes = require('./routes');
 
 require('./database');
@@ -16,6 +17,7 @@ class App {
   }
 
   middlewares() {
+    this.server.use(compression());
     this.server.use(cors());
     this.server.use(this.ddos.express);
     this.server.use(helmet());
