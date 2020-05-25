@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "start": "node src/server.js",
     "migrate": "yarn sequelize db:migrate",
     "migrate:undo": "yarn sequelize db:migrate:undo",
     "dev:server": "nodemon src/server.js",
@@ -12,6 +13,7 @@
   "dependencies": {
     "bcrypt": "^4.0.1",
     "cors": "^2.8.5",
+    "ddos": "^0.2.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^3.22.0",
