@@ -5,11 +5,14 @@ const types = ['in', 'out'];
 module.exports = async (receipt) => {
   try {
     const schema = Yup.object().shape({
-      type: Yup.string().oneOf(types).required(),
-      category_id: Yup.number().integer().positive().required(),
-      date: Yup.date().required(),
+      type: Yup.string().oneOf(types).required('Receipt must have a type.'),
+      category_id: Yup.number()
+        .integer()
+        .positive()
+        .required('Receipt must have a category_id.'),
+      date: Yup.date().required('Receipt must have a date.'),
       description: Yup.string(),
-      value: Yup.number().required(),
+      value: Yup.number().required('Receipt must have a value.'),
     });
 
     return await schema.validate(receipt, { abortEarly: false });

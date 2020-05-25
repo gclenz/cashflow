@@ -2,6 +2,22 @@ module.exports = function buildMakeReceipt(schema) {
   return ({ type, category_id, date, description, value, user_id } = {}) => {
     schema({ type, category_id, date, description, value });
 
+    if (!type) {
+      throw new Error('Receipt must have a type.');
+    }
+    if (!category_id) {
+      throw new Error('Receipt must have a category id.');
+    }
+    if (!date) {
+      throw new Error('Receipt must have a date.');
+    }
+    if (!value) {
+      throw new Error('Receipt must have a value.');
+    }
+    if (!user_id) {
+      throw new Error('Receipt must have a user id.');
+    }
+
     function checkIfValueIsCorrect() {
       const valueSign = Math.sign(Number(value));
 
