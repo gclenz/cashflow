@@ -1,6 +1,5 @@
 const buildMakeCategory = require('./category');
-const categorySchema = require('./category-schema');
 
-const makeCategory = buildMakeCategory(categorySchema);
+const makeCategory = buildMakeCategory();
 
 module.exports = makeCategory;
