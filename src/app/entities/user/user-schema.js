@@ -10,6 +10,6 @@ module.exports = async (user) => {
 
     return await schema.validate(user, { abortEarly: false });
   } catch (error) {
-    throw new Error({ error: 'Validation failed.', messages: error.inner });
+    throw new Error({ error: 'Validation failed.' });
   }
 };

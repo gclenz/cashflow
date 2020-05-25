@@ -22,21 +22,21 @@ describe('receipt', () => {
     expect(() => makeReceipt(receipt)).toThrow('Receipt must have a type.');
   });
 
-  it('must have a valid category id', () => {
+  it('must have a category id', () => {
     const receipt = makeFakeReceipt({ category_id: null });
     expect(() => makeReceipt(receipt)).toThrow(
       'Receipt must have a category id.'
     );
   });
-  it('must have valid date', () => {
+  it('must have date', () => {
     const receipt = makeFakeReceipt({ date: null });
     expect(() => makeReceipt(receipt)).toThrow('Receipt must have a date.');
   });
-  it('must have valid value', () => {
+  it('must have value', () => {
     const receipt = makeFakeReceipt({ value: null });
     expect(() => makeReceipt(receipt)).toThrow('Receipt must have a value.');
   });
-  it('must have valid user id', () => {
+  it('must have user id', () => {
     const receipt = makeFakeReceipt({ user_id: null });
     expect(() => makeReceipt(receipt)).toThrow('Receipt must have a user id.');
   });
