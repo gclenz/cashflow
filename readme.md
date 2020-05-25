@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Cashflow" src="https://i.ibb.co/pR2nK9Z/cover.png" style="max-width: 100%; height: 200px;" />
+    <img alt="Cashflow" src="https://i.ibb.co/pR2nK9Z/cover.png" style="height:50px;max-width:100%" />
     <br>
     Cashflow
 </h1>
@@ -64,6 +64,7 @@ $ yarn migrate
 
 # Run the backend server
 $ yarn dev:server
+```
 
 ---
 
