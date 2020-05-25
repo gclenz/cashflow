@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "heroku-postbuild": "yarn sequelize db:migrate",
     "start": "node src/server.js",
     "migrate": "yarn sequelize db:migrate",
     "migrate:undo": "yarn sequelize db:migrate:undo",
