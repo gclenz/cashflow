@@ -3,11 +3,9 @@ const { addCategory, removeCategory } = require('../use-cases/categories');
 class CategoryController {
   async createCategory(req, res) {
     try {
-      const { name } = await addCategory(req.body);
+      const category = await addCategory(req.body);
 
-      return res.status(201).json({
-        name,
-      });
+      return res.status(201).json(category);
     } catch (error) {
       console.log(error);
       return res.status(400).json({ error: 'Category creation failed.' });

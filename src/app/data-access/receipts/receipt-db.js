@@ -55,6 +55,7 @@ module.exports = function makeReceiptDb(makeDb) {
   async function insert({ ...receiptInfo }) {
     const exists = await makeDb.findOne({
       where: {
+        type: receiptInfo.type,
         date: receiptInfo.date,
         value: receiptInfo.value,
         user_id: receiptInfo.user_id,
