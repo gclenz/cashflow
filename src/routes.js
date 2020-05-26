@@ -16,6 +16,7 @@ routes.use(authMiddleware);
 
 routes.delete('/users', UserController.deleteUser);
 
+routes.get('/categories', CategoryController.listCategories);
 routes.post('/categories', CategoryController.createCategory);
 routes.delete('/categories/:id', CategoryController.deleteCategory);
 
