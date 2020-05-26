@@ -10,7 +10,6 @@ module.exports = function makeUserDb(makeDb) {
     return result;
   }
   async function insert({ ...userInfo }) {
-    console.log(userInfo);
     const { email } = userInfo;
     const exists = await makeDb.findOne({
       where: { email },
