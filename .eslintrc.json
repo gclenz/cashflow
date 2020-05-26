@@ -24,6 +24,6 @@
         "camelcase": "off",
         "no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
         "eslint-disable-next-line": "off"
-
-    }
+    },
+    "ignorePatterns": ["bundle.js", "bundle.js.map"]
 }
