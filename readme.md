@@ -69,6 +69,8 @@ $ yarn dev:server
 The project is live via Heroku on this link https://cashflow-br.herokuapp.com/
 You can use the Insomnia's workspace which is in the root of the directory to get know all possible requests.
 
+There is a micro documentation at https://gclenz.github.io/cashflow/
+
 ---
 
 Made with ♥ by Gabriel Lenz :wave: [Get in touch!](https://www.linkedin.com/in/gabriellenz/)
