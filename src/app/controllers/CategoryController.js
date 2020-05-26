@@ -1,6 +1,20 @@
-const { addCategory, removeCategory } = require('../use-cases/categories');
+const {
+  addCategory,
+  removeCategory,
+  listCategories,
+} = require('../use-cases/categories');
 
 class CategoryController {
+  async listCategories(req, res) {
+    try {
+      const categories = await listCategories();
+
+      return res.status(200).json(categories);
+    } catch (error) {
+      return res.status(400).json({ error: 'Failed to list categories.' });
+    }
+  }
+
   async createCategory(req, res) {
     try {
       const category = await addCategory(req.body);

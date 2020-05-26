@@ -9,6 +9,11 @@ module.exports = function makeCategoryDb(makeDb) {
     });
     return result;
   }
+  async function findAll() {
+    const categories = await makeDb.findAll();
+
+    return categories;
+  }
   async function insert({ ...categoryInfo }) {
     const exists = await makeDb.findOne({
       where: {
@@ -30,6 +35,7 @@ module.exports = function makeCategoryDb(makeDb) {
   return Object.freeze({
     findById,
     findOne,
+    findAll,
     insert,
     remove,
   });
